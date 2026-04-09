@@ -1,173 +1,285 @@
-export default function PortfolioLayout() {
-  const sections = [
-    {
-      label: "Description",
-      title: "A project exploring how design can make people feel more supported, grounded, and informed.",
-    },
-    {
-      label: "My Role",
-      title: "Designer / Researcher / Developer",
-    },
-    {
-      label: "The Goal",
-      title: "Understand a real human problem and design a response that feels thoughtful, useful, and emotionally aware.",
-    },
-  ];
+import { useEffect, useRef, useState } from 'react'
 
-  const process = [
-    "Project Overview & Focus",
-    "Research & Discovery",
-    "Synthesis",
-    "Design Direction",
-  ];
+// Hook: adds `is-visible` class when element scrolls into view
+function useReveal() {
+  const ref = useRef(null)
+  const [visible, setVisible] = useState(false)
 
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true)
+          observer.unobserve(el)
+        }
+      },
+      { threshold: 0.15 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return [ref, visible]
+}
+
+function Reveal({ children, delay = 0, className = '' }) {
+  const [ref, visible] = useReveal()
+  return (
+    <div
+      ref={ref}
+      className={`reveal ${visible ? 'is-visible' : ''} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  )
+}
+
+export default function App() {
   const stats = [
-    { value: "12", label: "Interviews conducted" },
-    { value: "40+", label: "Themes identified" },
-    { value: "6", label: "Key insights" },
-    { value: "3", label: "Design directions explored" },
-  ];
+    { value: '3+', label: 'Years building software, from class projects to production internships' },
+    { value: '2', label: 'AI/ML internships shipping LLM evaluation and training systems' },
+    { value: '10+', label: 'Languages and frameworks across the full stack' },
+    { value: '1', label: 'Capstone project leading interface and voice components' },
+  ]
 
-  const insights = [
-    "People often delay asking for help when systems make them feel exposed or judged.",
-    "Unclear next steps increase anxiety even when support is technically available.",
-    "People trust experiences that feel calm, legible, and emotionally considerate.",
-    "Overwhelm builds gradually through many small points of friction, not just one major failure.",
-    "Language, pacing, and structure shape whether a system feels supportive or cold.",
-    "A better experience is not only functional — it helps people feel more capable and less alone.",
-  ];
+  const projects = [
+    {
+      title: 'AI Voice Training System',
+      role: 'Frontend & Voice Lead — CS 490 Capstone',
+      year: '2026',
+      description:
+        'Built the React interface for a real-time voice training tool that lets sales reps practice conversations with an AI persona. Owns the annotated transcript view, AI feedback display, and note-taking experience. Integrates OpenAI, Deepgram, and ElevenLabs through a WebSocket pipeline.',
+      stack: ['React', 'WebSockets', 'Deepgram', 'ElevenLabs', 'OpenAI'],
+    },
+    {
+      title: 'RISC-V Emulator & Cache Simulator',
+      role: 'Individual Project — CS 315',
+      year: '2026',
+      description:
+        'A full RISC-V instruction emulator in C that decodes and executes R, I, B, and J-type instructions, tracks instruction counts, and simulates a set-associative cache with LRU eviction. Debugged through dozens of edge cases in branch handling, stack management, and cache indexing.',
+      stack: ['C', 'RISC-V', 'Computer Architecture'],
+    },
+    {
+      title: 'LLM Evaluation Pipeline',
+      role: 'AI Engineering Intern — Orchestro.ai',
+      year: '2025',
+      description:
+        'Designed and built scoring pipelines and RAG infrastructure for evaluating large language model outputs. Worked across prompt design, retrieval tuning, and evaluation metrics to give the team a repeatable way to measure model quality.',
+      stack: ['Python', 'RAG', 'Vector DBs', 'LLM Eval'],
+    },
+    {
+      title: 'Web Server + Search Engine + Chatbot',
+      role: 'Course Project — CS 272',
+      year: '2025',
+      description:
+        'A Go web service that combines a crawler, an inverted-index search engine, and a RAG-powered chatbot with OpenAI function calling. Taught me Go concurrency patterns (goroutines, channels, mutexes) and how to build backends that stay responsive under load.',
+      stack: ['Go', 'SQLite', 'RAG', 'MCP'],
+    },
+  ]
 
-  const principles = [
+  const experience = [
     {
-      title: "Clarity",
-      text: "Design should reduce uncertainty by making next steps obvious and information easier to process.",
+      company: 'Orchestro.ai',
+      role: 'AI Engineering Intern',
+      period: '2025',
+      summary: 'LLM evaluation systems, scoring pipelines, and RAG infrastructure.',
     },
     {
-      title: "Care",
-      text: "The experience should acknowledge emotional reality, not assume every user is calm and confident.",
+      company: 'ClearOne Advantage',
+      role: 'AI Intern',
+      period: '2024',
+      summary: 'Built AI sales training simulations with persona modules for rep onboarding.',
     },
     {
-      title: "Confidence",
-      text: "People should leave the experience feeling more grounded, informed, and capable of taking action.",
+      company: 'University of San Francisco',
+      role: 'Computer Science, B.S.',
+      period: '2022 – 2026',
+      summary: 'Coursework in computer architecture, file systems, software development, and ML.',
     },
-  ];
+  ]
+
+  const skills = {
+    Languages: ['Python', 'C', 'Go', 'JavaScript', 'RISC-V Assembly', 'SQL'],
+    'Frameworks & Tools': ['React', 'FastAPI', 'Node', 'Vite', 'Git', 'SQLite'],
+    'AI / ML': ['LLM Evaluation', 'RAG', 'Prompt Engineering', 'Vector Search'],
+    Systems: ['Computer Architecture', 'File Systems', 'Cache Simulation', 'xv6'],
+  }
 
   return (
-    <div className="min-h-screen bg-stone-50 text-zinc-900">
-      <header className="sticky top-0 z-20 border-b border-zinc-200/70 bg-stone-50/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <div>
-            <div className="text-sm uppercase tracking-[0.25em] text-zinc-500">Your Name</div>
-            <div className="text-lg font-medium">Portfolio</div>
-          </div>
-          <nav className="hidden gap-6 text-sm text-zinc-600 md:flex">
-            <a href="#overview" className="hover:text-zinc-900">Overview</a>
-            <a href="#process" className="hover:text-zinc-900">Process</a>
-            <a href="#insights" className="hover:text-zinc-900">Insights</a>
-            <a href="#framework" className="hover:text-zinc-900">Framework</a>
-          </nav>
+    <div className="site">
+      <header className="topbar">
+        <div>
+          <div className="brand-small">Manasa Krishnan</div>
+          <div className="brand-main">Software Engineer</div>
         </div>
+        <nav className="nav">
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </header>
 
       <main>
-        <section className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-          <div className="max-w-3xl">
-            <div className="mb-4 text-xs uppercase tracking-[0.3em] text-zinc-500">Case Study</div>
-            <h1 className="text-5xl font-semibold leading-tight tracking-tight md:text-7xl">
-              Placeholder Project Title
+        {/* HERO */}
+        <section className="section hero">
+          <Reveal>
+            <div className="eyebrow">Portfolio — 2026</div>
+          </Reveal>
+          <Reveal delay={100}>
+            <h1>
+              Building software that's<br />
+              <span className="accent">thoughtful</span> and <span className="accent">useful</span>.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-600">
-              A long-form project page for presenting research, design thinking, and visual storytelling in a more thoughtful and editorial way.
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="hero-text">
+              I'm Manasa — a final-year CS student at the University of San Francisco. I work across
+              systems, web, and applied AI, and I care about building things that actually work for
+              the people using them.
+            </p>
+          </Reveal>
+        </section>
+
+        {/* ABOUT SPLIT */}
+        <section className="section split-section" id="about">
+          <div className="split-left">
+            <div className="eyebrow">About</div>
+            <h2>A little about me</h2>
+          </div>
+          <div>
+            <p className="muted">
+              I started studying CS because I liked taking things apart. Four years in, that hasn't
+              changed — I'm just taking apart bigger things: emulators, compilers, language models,
+              production systems. I've interned on AI evaluation infrastructure and built real-time
+              voice applications. I write code that I'd want to inherit.
+            </p>
+            <p className="muted">
+              Right now I'm finishing a capstone on AI voice training, studying computer architecture
+              with Phil Peterson at USF, and looking for new-grad software roles.
             </p>
           </div>
         </section>
 
-        <section className="mx-auto grid max-w-6xl gap-10 px-6 pb-16 md:grid-cols-3" id="overview">
-          {sections.map((item) => (
-            <div key={item.label} className="border-t border-zinc-300 pt-4">
-              <div className="text-xs uppercase tracking-[0.25em] text-zinc-500">{item.label}</div>
-              <p className="mt-4 text-lg leading-8 text-zinc-800">{item.title}</p>
-            </div>
-          ))}
-        </section>
-
-        <section className="mx-auto max-w-6xl px-6 py-8">
-          <div className="rounded-[2rem] border border-zinc-200 bg-white p-4 shadow-sm md:p-8">
-            <div className="aspect-[16/8] w-full rounded-[1.5rem] bg-gradient-to-br from-amber-100 via-rose-100 to-orange-50" />
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-6 py-20" id="process">
-          <div className="grid gap-12 md:grid-cols-[260px_1fr]">
-            <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-zinc-500">The Process</div>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">A simple roadmap</h2>
-            </div>
-            <div className="grid gap-5 md:grid-cols-2">
-              {process.map((step, index) => (
-                <div key={step} className="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
-                  <div className="text-sm text-zinc-500">0{index + 1}</div>
-                  <div className="mt-3 text-xl font-medium text-zinc-900">{step}</div>
+        {/* STATS */}
+        <section className="section">
+          <Reveal>
+            <div className="eyebrow">By the numbers</div>
+          </Reveal>
+          <div className="stats-grid">
+            {stats.map((item, i) => (
+              <Reveal key={item.label} delay={i * 100}>
+                <div className="stat-card">
+                  <h2>{item.value}</h2>
+                  <p>{item.label}</p>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="mx-auto max-w-6xl px-6 py-8">
-          <div className="grid gap-5 md:grid-cols-4">
-            {stats.map((item) => (
-              <div key={item.label} className="rounded-[1.5rem] bg-zinc-900 p-6 text-stone-50">
-                <div className="text-4xl font-semibold tracking-tight">{item.value}</div>
-                <div className="mt-2 text-sm leading-6 text-zinc-300">{item.label}</div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-20" id="insights">
-          <div className="grid gap-12 md:grid-cols-[260px_1fr]">
-            <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-zinc-500">Insights</div>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">What emerged from the work</h2>
-            </div>
-            <div className="space-y-4">
-              {insights.map((insight, index) => (
-                <div key={index} className="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
-                  <div className="text-sm text-zinc-500">Insight {index + 1}</div>
-                  <p className="mt-3 text-lg leading-8 text-zinc-800">{insight}</p>
-                </div>
-              ))}
-            </div>
+        {/* PROJECTS */}
+        <section className="section split-section" id="work">
+          <div className="split-left">
+            <div className="eyebrow">Selected Work</div>
+            <h2>Projects I'm proud of</h2>
+            <p className="muted">
+              A mix of course work, internships, and capstone projects spanning systems, AI, and web.
+            </p>
+          </div>
+          <div className="projects-list">
+            {projects.map((p, i) => (
+              <Reveal key={p.title} delay={i * 80}>
+                <article className="project-card">
+                  <div className="card-number">0{i + 1}</div>
+                  <div className="project-header">
+                    <h3>{p.title}</h3>
+                    <span className="project-year">{p.year}</span>
+                  </div>
+                  <div className="project-role">{p.role}</div>
+                  <p>{p.description}</p>
+                  <div className="stack">
+                    {p.stack.map((s) => (
+                      <span key={s} className="tag">{s}</span>
+                    ))}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-20" id="framework">
-          <div className="grid gap-12 md:grid-cols-[260px_1fr]">
-            <div>
-              <div className="text-xs uppercase tracking-[0.25em] text-zinc-500">Framework</div>
-              <h2 className="mt-4 text-3xl font-semibold tracking-tight">Design principles</h2>
-              <p className="mt-4 text-base leading-7 text-zinc-600">
-                Placeholder principles that translate research into a clearer design direction.
-              </p>
-            </div>
-            <div className="grid gap-5 md:grid-cols-3">
-              {principles.map((item) => (
-                <div key={item.title} className="rounded-[1.5rem] border border-zinc-200 bg-white p-6 shadow-sm">
-                  <div className="text-sm uppercase tracking-[0.2em] text-zinc-500">{item.title}</div>
-                  <p className="mt-4 text-base leading-7 text-zinc-700">{item.text}</p>
+        {/* EXPERIENCE */}
+        <section className="section split-section" id="experience">
+          <div className="split-left">
+            <div className="eyebrow">Experience</div>
+            <h2>Where I've been</h2>
+          </div>
+          <div className="experience-list">
+            {experience.map((e, i) => (
+              <Reveal key={e.company} delay={i * 80}>
+                <div className="experience-item">
+                  <div className="experience-period">{e.period}</div>
+                  <div>
+                    <div className="experience-role">{e.role}</div>
+                    <div className="experience-company">{e.company}</div>
+                    <p>{e.summary}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
         </section>
 
-        <section className="mx-auto max-w-6xl px-6 py-12">
-          <div className="rounded-[2rem] border border-dashed border-zinc-300 bg-white p-8 text-center text-zinc-500 shadow-sm md:p-16">
-            Placeholder area for more visuals, diagrams, screenshots, or a final reflection.
+        {/* SKILLS */}
+        <section className="section split-section">
+          <div className="split-left">
+            <div className="eyebrow">Toolkit</div>
+            <h2>What I work with</h2>
+          </div>
+          <div className="skills-grid">
+            {Object.entries(skills).map(([category, items], i) => (
+              <Reveal key={category} delay={i * 80}>
+                <div className="skill-group">
+                  <div className="skill-category">{category}</div>
+                  <div className="skill-items">
+                    {items.map((s) => (
+                      <span key={s} className="tag">{s}</span>
+                    ))}
+                  </div>
+                </div>
+              </Reveal>
+            ))}
           </div>
         </section>
+
+        {/* CONTACT */}
+        <section className="section contact" id="contact">
+          <Reveal>
+            <div className="eyebrow">Let's talk</div>
+          </Reveal>
+          <Reveal delay={100}>
+            <h2 className="contact-heading">
+              Always up for a good<br />conversation about code.
+            </h2>
+          </Reveal>
+          <Reveal delay={200}>
+            <div className="contact-links">
+              <a href="mailto:mkrishnan3@dons.usfca.edu">mkrishnan3@dons.usfca.edu</a>
+              <a href="https://github.com/manasakri" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </Reveal>
+        </section>
+
+        <footer className="footer">
+          <div>© 2026 Manasa Krishnan</div>
+          <div>Designed and built by me.</div>
+        </footer>
       </main>
     </div>
-  );
+  )
 }
