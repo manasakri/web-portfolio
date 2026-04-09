@@ -1,0 +1,232 @@
+:root {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #18181b;
+  background: #f8f6f1;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #f8f6f1;
+  color: #18181b;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site {
+  min-height: 100vh;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  border-bottom: 1px solid #e4e4e7;
+  background: rgba(248, 246, 241, 0.92);
+  backdrop-filter: blur(10px);
+}
+
+.brand-small {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: #71717a;
+}
+
+.brand-main {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  color: #52525b;
+}
+
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+.hero {
+  padding-top: 6rem;
+  padding-bottom: 4rem;
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  color: #71717a;
+  margin-bottom: 1rem;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 0.95;
+  margin: 0;
+  letter-spacing: -0.04em;
+}
+
+.hero-text {
+  max-width: 720px;
+  margin-top: 1.5rem;
+  font-size: 1.15rem;
+  line-height: 1.9;
+  color: #52525b;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.overview-card {
+  border-top: 1px solid #cbd5e1;
+  padding-top: 1rem;
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #27272a;
+}
+
+.hero-image-placeholder,
+.final-placeholder {
+  border-radius: 2rem;
+  border: 1px solid #e4e4e7;
+  background: linear-gradient(135deg, #fef3c7, #fde2e4, #fff7ed);
+  min-height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: #71717a;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+}
+
+.split-left h2 {
+  margin: 0.5rem 0 0;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.muted {
+  margin-top: 1rem;
+  color: #52525b;
+  line-height: 1.8;
+}
+
+.process-grid,
+.principles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.process-card,
+.insight-card,
+.principle-card {
+  background: white;
+  border: 1px solid #e4e4e7;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.card-number {
+  font-size: 0.9rem;
+  color: #71717a;
+  margin-bottom: 0.75rem;
+}
+
+.process-card h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.stat-card {
+  background: #18181b;
+  color: #fafaf9;
+  border-radius: 1.5rem;
+  padding: 1.75rem;
+}
+
+.stat-card h2 {
+  margin: 0;
+  font-size: 2.3rem;
+  letter-spacing: -0.03em;
+}
+
+.stat-card p {
+  margin-top: 0.5rem;
+  color: #d4d4d8;
+  line-height: 1.6;
+}
+
+.insights-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.insight-card p:last-child,
+.principle-card p:last-child {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #3f3f46;
+}
+
+@media (max-width: 900px) {
+  .overview-grid,
+  .stats-grid,
+  .process-grid,
+  .principles-grid,
+  .split-section {
+    grid-template-columns: 1fr;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .section {
+    padding: 4rem 1.25rem;
+  }
+
+  .topbar {
+    padding: 1rem 1.25rem;
+  }
+}
