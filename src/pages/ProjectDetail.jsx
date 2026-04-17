@@ -12,17 +12,12 @@ export default function ProjectDetail() {
   const next = projects[(index + 1) % projects.length]
 
   const isVoiceProject = project.slug === 'ai-voice-training'
-  const teamValue = isVoiceProject
-    ? 'ClearOne Advantage team and sponsors'
-    : project.team
+  const teamValue = project.team
 
   return (
     <article className="project-page">
       <div className="project-hero" style={{ background: project.gradient }}>
         <div className="project-hero-inner">
-          <Reveal>
-            <div className="eyebrow eyebrow-light">Case Study</div>
-          </Reveal>
           <Reveal delay={100}>
             <h1 className="project-hero-title">{project.title}</h1>
           </Reveal>
