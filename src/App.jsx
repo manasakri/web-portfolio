@@ -52,7 +52,6 @@ export default function App() {
 
       <footer className="footer">
         <div>© 2026 Manasa Krishnan</div>
-        <div>Designed and built by me.</div>
       </footer>
     </div>
   )
