@@ -13,7 +13,7 @@ export const projects = [
       "This project is a real-time voice training tool that lets sales reps practice conversations with an AI persona. I built the React interface, including the annotated transcript view, AI feedback display, and note-taking experience. The focus was creating a training experience that felt interactive, clear, and useful during live conversations.",
     role: 'Frontend Engineer, Voice Integration',
     team: "USF CS 490 Capstone Team (Divya D'Souza, Natalie Hlusi, Manasa Krishnan, Ankit Mukhopadhyay), ClearOne Advantage team and sponsors",
-    stack: ['React', 'WebSockets', 'Deepgram', 'ElevenLabs', 'OpenAI'],
+    stack: ['React', 'WebSockets', 'Deepgram', 'ElevenLabs', 'OpenAI', 'AWS Transcribe', 'Twilio'],
     highlights: [
       'Designed the annotated transcript UI that surfaces live AI feedback mid-conversation.',
       'Debugged CORS, React StrictMode WebSocket issues, and Deepgram SSL failures.',
