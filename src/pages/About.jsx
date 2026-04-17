@@ -54,18 +54,15 @@ export default function About() {
               <h2 className="rail-heading">Where I come from.</h2>
               <p className="muted">
                 {/* EDIT: your origin story — hometown, family, early influences */}
-                I grew up in Pleasanton, California, where the people and places around me influenced me more 
-                than I realized at the time. The person I look up to most is my sister, because she 
-                taught me that respect starts with yourself and that confidence is a big part of that. I have 
-                always admired how strongly she stands by what she believes and never backs down from what she 
+                I grew up in Pleasanton, California, where the people and places around me influenced me more than I realized at the time. The person I look up to most is my sister, because she  
+                taught me that respect starts with yourself and that confidence is a big part of that. I have always admired how strongly she stands by what she believes and never backs down from what she 
                 knows she deserves.
 
-                I am just as thankful for the rest of my family and the support they have given me. I am hard of 
-                hearing, and because my parents are immigrants, they did not always know how to navigate that experience, 
-                but they worked incredibly hard to support me and create opportunities for our family. They gave us 
-                experiences they never had themselves, from traveling to even simple things like going to the dentist. 
-                Neither of my grandmothers graduated high school, so whenever I question what I am doing with my life, 
-                I remind myself that being here and pursuing this path is a privilege.
+                I am just as thankful for the rest of my family and the support they have given me. I am hard of hearing, and because my parents are immigrants, they did not
+                always know how to navigate that experience, but they worked incredibly hard to support me and create opportunities for our family. 
+                They gave us experiences they never had themselves, from traveling to even simple things like going to the dentist. 
+                Neither of my grandmothers graduated high school, so whenever I question what I am doing with my life, I remind myself that being here and pursuing this 
+                path is a privilege.
               </p>
             </div>
           </div>
