@@ -23,7 +23,7 @@ export const projects = [
   {
     slug: 'riscv-emulator',
     title: 'RISC-V Emulator & Cache Simulator',
-    subtitle: 'Individual Project — CS 315',
+    subtitle: 'Course Project — CS 315',
     year: '2026',
     tagline: 'A full instruction-level emulator written in C, with a set-associative cache model.',
     gradient: 'linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%)',

@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <section className="section hero">
       <Reveal>
-        <div className="eyebrow">Portfolio — 2026</div>
+        <div className="eyebrow">Portfolio</div>
       </Reveal>
       <Reveal delay={100}>
         <h1>
@@ -15,7 +15,7 @@ export default function Home() {
       </Reveal>
       <Reveal delay={200}>
         <p className="hero-text">
-          I'm Manasa — a final-year CS student at the University of San Francisco. I work across
+          Hi! I'm Manasa, and I am currently in my last semester at the University of San Francisco! I've work across
           systems, web, and applied AI, and I care about building things that actually work for
           the people using them.
         </p>
