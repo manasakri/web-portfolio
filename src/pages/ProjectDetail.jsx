@@ -68,9 +68,26 @@ export default function ProjectDetail() {
             <Reveal delay={200}>
               <div style={{ marginTop: '2rem' }}>
                 <div className="eyebrow">Take a look</div>
-                <p className="muted">
-                  I’ll add pictures and a Google Slides presentation here.
-                </p>
+
+                <div className="project-pdf-frame project-pdf-frame-small">
+                  <object
+                    data="/ai-voice-training-presentation.pdf"
+                    type="application/pdf"
+                    className="project-pdf-viewer"
+                  >
+                    <div className="pdf-fallback">
+                      <p>Your browser doesn't support inline PDF viewing.</p>
+                      <a
+                        href="/ai-voice-training-presentation.pdf"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn btn-primary"
+                      >
+                        Open presentation
+                      </a>
+                    </div>
+                  </object>
+                </div>
               </div>
             </Reveal>
           )}
