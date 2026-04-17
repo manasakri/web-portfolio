@@ -70,8 +70,8 @@ export const projects = [
     gradient: 'linear-gradient(135deg, #f97316 0%, #ec4899 50%, #d946ef 100%)',
     accent: '#ec4899',
     description:
-      'Designed and built scoring pipelines and RAG infrastructure for evaluating large language model outputs. Worked across prompt design, retrieval tuning, and evaluation metrics to give the team a repeatable way to measure model quality.',
-    role: 'AI Engineering Intern',
+  'This project is a real-time voice training tool that lets sales reps practice conversations with an AI persona. I built the React interface, including the annotated transcript view, AI feedback display, and note-taking experience. The focus was creating a training experience that felt interactive, clear, and useful during live conversations.',
+    team: "USF CS 490 Capstone Team (Divya D'Souza, Natalie Hlusi, Manasa Krishnan, Ankit Mukhopadhyay), ClearOne Advantage team and sponsors",    role: 'AI Engineering Intern',
     team: 'Orchestro.ai platform team',
     stack: ['Python', 'RAG', 'Vector DBs', 'LLM Eval'],
     highlights: [

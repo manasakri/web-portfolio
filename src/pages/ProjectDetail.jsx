@@ -11,13 +11,17 @@ export default function ProjectDetail() {
   const index = projects.findIndex((p) => p.slug === slug)
   const next = projects[(index + 1) % projects.length]
 
+  const isVoiceProject = project.slug === 'ai-voice-training'
+  const teamValue = isVoiceProject
+    ? 'ClearOne Advantage team and sponsors'
+    : project.team
+
   return (
     <article className="project-page">
-      {/* Hero band with the project's gradient */}
       <div className="project-hero" style={{ background: project.gradient }}>
         <div className="project-hero-inner">
           <Reveal>
-            <div className="eyebrow eyebrow-light">{project.year} — Case Study</div>
+            <div className="eyebrow eyebrow-light">Case Study</div>
           </Reveal>
           <Reveal delay={100}>
             <h1 className="project-hero-title">{project.title}</h1>
@@ -37,11 +41,7 @@ export default function ProjectDetail() {
             </div>
             <div>
               <div className="meta-label">Team</div>
-              <div className="meta-value">{project.team}</div>
-            </div>
-            <div>
-              <div className="meta-label">Year</div>
-              <div className="meta-value">{project.year}</div>
+              <div className="meta-value">{teamValue}</div>
             </div>
           </div>
         </Reveal>
@@ -56,6 +56,29 @@ export default function ProjectDetail() {
           <Reveal>
             <p className="muted">{project.description}</p>
           </Reveal>
+
+          <Reveal delay={100}>
+            <div style={{ marginTop: '2rem' }}>
+              <div className="eyebrow">Stack</div>
+              <h2>Tools & tech</h2>
+              <div className="stack" style={{ marginTop: '1rem' }}>
+                {project.stack.map((s) => (
+                  <span key={s} className="tag">{s}</span>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          {isVoiceProject && (
+            <Reveal delay={200}>
+              <div style={{ marginTop: '2rem' }}>
+                <div className="eyebrow">Take a look</div>
+                <p className="muted">
+                  I’ll add pictures and a Google Slides presentation here.
+                </p>
+              </div>
+            </Reveal>
+          )}
         </div>
       </section>
 
@@ -67,32 +90,31 @@ export default function ProjectDetail() {
         <div className="highlights-list">
           {project.highlights.map((h, i) => (
             <Reveal key={i} delay={i * 80}>
-              <div className="highlight-card" style={{ borderLeftColor: project.accent }}>
-                <div className="card-number">0{i + 1}</div>
-                <p>{h}</p>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '56px 1fr',
+                  gap: '1rem',
+                  padding: '1rem 0',
+                  borderBottom: '1px solid rgba(24, 24, 27, 0.08)',
+                }}
+              >
+                <div
+                  className="card-number"
+                  style={{
+                    color: project.accent,
+                    marginTop: '0.05rem',
+                  }}
+                >
+                  0{i + 1}
+                </div>
+                <p style={{ margin: 0 }}>{h}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      <section className="section split-section">
-        <div className="split-left">
-          <div className="eyebrow">Stack</div>
-          <h2>Tools & tech</h2>
-        </div>
-        <div>
-          <Reveal>
-            <div className="stack">
-              {project.stack.map((s) => (
-                <span key={s} className="tag">{s}</span>
-              ))}
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* Next project teaser */}
       <section className="section next-project">
         <Reveal>
           <div className="eyebrow">Next project</div>
