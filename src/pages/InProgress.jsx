@@ -117,7 +117,7 @@ export default function InProgress() {
       </Reveal>
       <Reveal delay={200}>
         <p className="hero-text">
-          A live view of what's running on my machine. Two sections — what I'm researching and
+          A live view of what's running on my machine: what I'm researching and
           what I'm building.
         </p>
       </Reveal>
