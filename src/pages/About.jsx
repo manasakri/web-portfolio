@@ -3,16 +3,16 @@ import { Divider } from '../components/Graphics'
 
 const experience = [
   {
+    company: 'ClearOne Advantage',
+    role: 'AI Intern',
+    period: '2026',
+    summary: 'Built AI sales training simulations with persona modules for rep onboarding.',
+  },
+  {
     company: 'Orchestro.ai',
     role: 'AI Engineering Intern',
     period: '2025',
     summary: 'LLM evaluation systems, scoring pipelines, and RAG infrastructure.',
-  },
-  {
-    company: 'ClearOne Advantage',
-    role: 'AI Intern',
-    period: '2024',
-    summary: 'Built AI sales training simulations with persona modules for rep onboarding.',
   },
   {
     company: 'University of San Francisco',
@@ -36,11 +36,6 @@ export default function About() {
           </h1>
         </Reveal>
         <Reveal delay={200}>
-          <p className="hero-text">
-            I started studying CS because I liked taking things apart. Four years in, that hasn't
-            changed — I'm just taking apart bigger things: emulators, compilers, language models,
-            production systems. I write code that I'd want to inherit.
-          </p>
         </Reveal>
       </section>
 
@@ -59,7 +54,7 @@ export default function About() {
               <h2 className="rail-heading">Where I come from.</h2>
               <p className="muted">
                 {/* EDIT: your origin story — hometown, family, early influences */}
-                I grew up in [city/region], where [something about your environment — suburbs,
+                I grew up in Pleasanton, CA, where [something about your environment — suburbs,
                 a big family, a small town, moving around]. [One detail about your childhood
                 that shaped you — a parent's job, an early obsession, a pivotal experience.]
                 That's still the lens I see problems through today.
@@ -79,9 +74,16 @@ export default function About() {
               <h2 className="rail-heading">What I get into.</h2>
               <p className="muted">
                 {/* EDIT: hobbies, interests — be specific */}
-                When I'm not in front of a terminal, I'm usually [hobby 1 — reading, cooking,
-                running, drawing]. I'm into [specific interest — a genre, a book, a sport,
-                a cuisine]. I also [another thing — travel, volunteer, play music].
+                When I’m not in front of a computer, I’m usually taking a Pilates class, listening 
+                to podcasts and audiobooks, putting together puzzles (currently a 1000-piece one),
+                and wandering around the city. I’ve been in San Francisco for almost five years 
+                now, and some of my favorite places to be are Golden Gate Park for a short walk, 
+                North Beach for delicious food (and the city’s only In-N-Out), and the Mission District 
+                for a good window-shopping experience. I actively avoid places where I have to walk 
+                up a steep street or hill, including parts of Fillmore, Russian Hill, and Pac Heights. The 
+                life I picture for myself includes small, intimate gatherings with friends, lots of travel, and 
+                a career I feel genuinely passionate and excited about. 
+
               </p>
             </div>
           </div>
@@ -100,10 +102,28 @@ export default function About() {
               </h2>
               <p className="muted">
                 {/* EDIT: the story of how CS became your thing */}
-                I didn't always think I'd end up in computer science. [What you thought you'd
-                do before CS — a different major, a different path.] Then [the moment that
-                changed it — a class, a project, a problem you couldn't stop thinking about].
-                The more I learned, the more I realized [why CS clicked for you].
+                
+                I grew up in Pleasanton, California, where the people and places around me influenced me more 
+                than I realized at the time. The person I look up to most is my sister, because she 
+                taught me that respect starts with yourself and that confidence is a big part of that. I have 
+                always admired how strongly she stands by what she believes and never backs down from what she 
+                knows she deserves.
+
+                I am just as thankful for the rest of my family and the support they have given me. I am hard of 
+                hearing, and because my parents are immigrants, they did not always know how to navigate that experience, 
+                but they worked incredibly hard to support me and create opportunities for our family. They gave us 
+                experiences they never had themselves, from traveling to even simple things like going to the dentist. 
+                Neither of my grandmothers graduated high school, so whenever I question what I am doing with my life, 
+                I remind myself that being here and pursuing this path is a privilege.
+
+                I did not always think I would end up in computer science. I originally started as a psychology major because 
+                I hoped to become a therapist, and I was a computer science minor because I enjoyed puzzles and problem-solving. 
+                Over time, I became more drawn to CS because I realized how interdisciplinary it is. Technology touches almost 
+                every part of life, and I started to see that computer science could connect to the things I already cared 
+                about: people, creativity, design, and meaningful problem-solving.
+
+                That is also what led me to pursue a minor in Entrepreneurship and Innovation. I wanted to become more well-rounded 
+                and better understand how to build things not just technically, but with people, business, and real-world impact in mind
               </p>
             </div>
           </div>
@@ -122,10 +142,12 @@ export default function About() {
               </h2>
               <p className="muted">
                 {/* EDIT: what you want to do next */}
-                I'm looking for new-grad software roles where I can work on [specific area —
-                infrastructure, applied AI, developer tools, systems]. I care about [value —
-                small teams, mentorship, clean codebases, shipping]. Long-term, I want to
-                [bigger ambition].
+                 I’m looking for new-grad software roles where I can build thoughtful, human-centered 
+                products with a strong technical foundation. I’m especially interested in software that 
+                connects technology with creativity, behavior, and user experience, whether through 
+                consumer-facing products, applied AI, or interactive systems. I truly value being on a 
+                team that values curiosity and collaboration, because I believe that kind of environment 
+                makes the work more engaging, and more enjoyable to be part of.
               </p>
             </div>
           </div>
