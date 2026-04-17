@@ -54,10 +54,18 @@ export default function About() {
               <h2 className="rail-heading">Where I come from.</h2>
               <p className="muted">
                 {/* EDIT: your origin story — hometown, family, early influences */}
-                I grew up in Pleasanton, CA, where [something about your environment — suburbs,
-                a big family, a small town, moving around]. [One detail about your childhood
-                that shaped you — a parent's job, an early obsession, a pivotal experience.]
-                That's still the lens I see problems through today.
+                I grew up in Pleasanton, California, where the people and places around me influenced me more 
+                than I realized at the time. The person I look up to most is my sister, because she 
+                taught me that respect starts with yourself and that confidence is a big part of that. I have 
+                always admired how strongly she stands by what she believes and never backs down from what she 
+                knows she deserves.
+
+                I am just as thankful for the rest of my family and the support they have given me. I am hard of 
+                hearing, and because my parents are immigrants, they did not always know how to navigate that experience, 
+                but they worked incredibly hard to support me and create opportunities for our family. They gave us 
+                experiences they never had themselves, from traveling to even simple things like going to the dentist. 
+                Neither of my grandmothers graduated high school, so whenever I question what I am doing with my life, 
+                I remind myself that being here and pursuing this path is a privilege.
               </p>
             </div>
           </div>
@@ -103,19 +111,6 @@ export default function About() {
               <p className="muted">
                 {/* EDIT: the story of how CS became your thing */}
                 
-                I grew up in Pleasanton, California, where the people and places around me influenced me more 
-                than I realized at the time. The person I look up to most is my sister, because she 
-                taught me that respect starts with yourself and that confidence is a big part of that. I have 
-                always admired how strongly she stands by what she believes and never backs down from what she 
-                knows she deserves.
-
-                I am just as thankful for the rest of my family and the support they have given me. I am hard of 
-                hearing, and because my parents are immigrants, they did not always know how to navigate that experience, 
-                but they worked incredibly hard to support me and create opportunities for our family. They gave us 
-                experiences they never had themselves, from traveling to even simple things like going to the dentist. 
-                Neither of my grandmothers graduated high school, so whenever I question what I am doing with my life, 
-                I remind myself that being here and pursuing this path is a privilege.
-
                 I did not always think I would end up in computer science. I originally started as a psychology major because 
                 I hoped to become a therapist, and I was a computer science minor because I enjoyed puzzles and problem-solving. 
                 Over time, I became more drawn to CS because I realized how interdisciplinary it is. Technology touches almost 
