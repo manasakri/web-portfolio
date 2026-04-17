@@ -24,6 +24,22 @@
 }
 
 * { box-sizing: border-box; }
+
+button,
+.btn,
+.tag,
+.work-cell,
+.next-link,
+.pdf-frame,
+.project-pdf-frame,
+.highlight-card,
+.term-card,
+.term-dot,
+object,
+iframe {
+  border-radius: 0 !important;
+}
+
 html { scroll-behavior: smooth; }
 
 body {

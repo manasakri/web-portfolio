@@ -96,7 +96,6 @@ export default function ProjectDetail() {
 
       <section className="section split-section">
         <div className="split-left">
-          <div className="eyebrow">Highlights</div>
           <h2>What I did</h2>
         </div>
         <div className="highlights-list">
