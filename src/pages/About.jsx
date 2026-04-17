@@ -3,22 +3,32 @@ import { Divider } from '../components/Graphics'
 
 const experience = [
   {
+    
     company: 'ClearOne Advantage',
     role: 'AI Intern',
     period: '2026',
-    summary: 'Built AI sales training simulations with persona modules for rep onboarding.',
   },
   {
     company: 'Orchestro.ai',
-    role: 'AI Engineering Intern',
+    role: 'AI Engineering Intern and Research Intern',
     period: '2025',
-    summary: 'LLM evaluation systems, scoring pipelines, and RAG infrastructure.',
+  },
+
+ {
+    company: 'DigiChat',
+    role: 'Game Development Intern',
+    period: '2025',
+  },
+  {
+    
+    company: 'Kencor Health',
+    role: 'Project Intern',
+    period: '2022',
   },
   {
     company: 'University of San Francisco',
     role: 'Computer Science, B.S.',
-    period: '2022 – 2026',
-    summary: 'Coursework in computer architecture, file systems, software development, and ML.',
+    period: '2021 – 2026',
   },
 ]
 
