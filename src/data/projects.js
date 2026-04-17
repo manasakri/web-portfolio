@@ -71,7 +71,8 @@ export const projects = [
     accent: '#ec4899',
     description:
   'This project is a real-time voice training tool that lets sales reps practice conversations with an AI persona. I built the React interface, including the annotated transcript view, AI feedback display, and note-taking experience. The focus was creating a training experience that felt interactive, clear, and useful during live conversations.',
-    team: "USF CS 490 Capstone Team (Divya D'Souza, Natalie Hlusi, Manasa Krishnan, Ankit Mukhopadhyay), ClearOne Advantage team and sponsors",    role: 'AI Engineering Intern',
+team: 'USF CS 490 Capstone Team(Divya D\'Souza, Natalie Hlusi, Manasa Krishnan, Ankit Mukhopadhyay), ClearOne Advantage team and sponsors',
+    role: 'AI Engineering Intern',
     team: 'Orchestro.ai platform team',
     stack: ['Python', 'RAG', 'Vector DBs', 'LLM Eval'],
     highlights: [
