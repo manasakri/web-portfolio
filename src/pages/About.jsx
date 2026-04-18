@@ -64,15 +64,11 @@ export default function About() {
               <h2 className="rail-heading">Where I come from.</h2>
               <p className="muted">
                 {/* EDIT: your origin story — hometown, family, early influences */}
-                I grew up in Pleasanton, California, where the people and places around me influenced me more than I realized at the time. The person I look up to most is my sister, because she  
-                taught me that respect starts with yourself and that confidence is a big part of that. I have always admired how strongly she stands by what she believes and never backs down from what she 
-                knows she deserves.
-
-                I am just as thankful for the rest of my family and the support they have given me. I am hard of hearing, and because my parents are immigrants, they did not
-                always know how to navigate that experience, but they worked incredibly hard to support me and create opportunities for our family. 
-                They gave us experiences they never had themselves, from traveling to even simple things like going to the dentist. 
-                Neither of my grandmothers graduated high school, so whenever I question what I am doing with my life, I remind myself that being here and pursuing this 
-                path is a privilege.
+                I grew up in Pleasanton, California, and much of my perspective comes from the people around me and the values I was raised with. 
+                Growing up in an immigrant family gave me an early appreciation for resilience, opportunity, and access. I am also
+                hard of hearing, which shaped how I think about communication, adaptability, and the different ways people move through the world. 
+                Those experiences continue to shape how I approach my work and why I care about building technology that 
+                feels both inclusive and accessible.            
               </p>
             </div>
           </div>
@@ -89,15 +85,11 @@ export default function About() {
               <h2 className="rail-heading">What I get into.</h2>
               <p className="muted">
                 {/* EDIT: hobbies, interests — be specific */}
-                When I’m not in front of a computer, I’m usually taking a Pilates class, listening 
-                to podcasts and audiobooks, putting together puzzles (currently a 1000-piece one),
-                and wandering around the city. I’ve been in San Francisco for almost five years 
-                now, and some of my favorite places to be are Golden Gate Park for a short walk, 
-                North Beach for delicious food (and the city’s only In-N-Out), and the Mission District 
-                for a good window-shopping experience. I actively avoid places where I have to walk 
-                up a steep street or hill, including parts of Fillmore, Russian Hill, and Pac Heights. The 
-                life I picture for myself includes small, intimate gatherings with friends, lots of travel, and 
-                a career I feel genuinely passionate and excited about. 
+                When I’m not in front of a computer, I’m usually taking a Pilates class, listening to podcasts and audiobooks, 
+                working on a puzzle (currently a 1000-piece one), or wandering around the city. After nearly five years in 
+                San Francisco, some of my favorite places are Golden Gate Park, North Beach, and the Mission. 
+                Outside of work, I picture a life filled with close friendships, travel, and a career I feel genuinely 
+                excited about. with friends, lots of travel, and a career I feel genuinely passionate and excited about. 
 
               </p>
             </div>
@@ -124,8 +116,8 @@ export default function About() {
                 every part of life, and I started to see that computer science could connect to the things I already cared 
                 about: people, creativity, design, and meaningful problem-solving.
 
-                That is also what led me to pursue a minor in Entrepreneurship and Innovation. I wanted to become more well-rounded 
-                and better understand how to build things not just technically, but with people, business, and real-world impact in mind
+                That perspective also led me to pursue a minor in Entrepreneurship and Innovation, where I could better understand 
+                how to build with and for people, businesses, and and the communities they serve.
               </p>
             </div>
           </div>
@@ -149,7 +141,7 @@ export default function About() {
                 connects technology with creativity, behavior, and user experience, whether through 
                 consumer-facing products, applied AI, or interactive systems. I truly value being on a 
                 team that values curiosity and collaboration, because I believe that kind of environment 
-                makes the work more engaging, and more enjoyable to be part of.
+                makes the work not only more engaging, but enjoyable to be a part of. 
               </p>
             </div>
           </div>
