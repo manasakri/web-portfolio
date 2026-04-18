@@ -364,6 +364,166 @@ main { flex: 1; }
 }
 
 /* ---------- PROJECT DETAIL ---------- */
+
+.process-layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.process-nav {
+  position: sticky;
+  top: 110px;
+  align-self: start;
+  border-right: 1px solid var(--line);
+  padding-right: 1.5rem;
+}
+
+.process-nav-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1.25rem;
+}
+
+.process-nav a {
+  display: block;
+  font-family: var(--font-body);
+  color: var(--muted);
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.25rem;
+}
+
+.process-nav a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.process-content {
+  min-width: 0;
+}
+
+.process-block {
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 4rem;
+}
+
+.process-block:last-child {
+  margin-bottom: 0;
+}
+
+.process-split {
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+}
+
+.process-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+}
+
+.process-block .split-left h2 {
+  margin-top: 0;
+}
+
+.roadmap-row {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.roadmap-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.roadmap-circle {
+  width: 74px;
+  height: 74px;
+  border: 2px solid var(--ink);
+  background: transparent;
+}
+
+.roadmap-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.roadmap-arrow {
+  font-size: 2rem;
+  line-height: 1;
+  margin-top: -1rem;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.research-card {
+  border: 1px solid var(--line);
+  padding: 1.5rem;
+  background: var(--card);
+}
+
+.prototype-strip {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 1fr);
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.prototype-box {
+  min-height: 260px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  color: var(--subtle);
+  flex-shrink: 0;
+}
+
+.prototype-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slow-scroll-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+.slow-scroll-inner {
+  will-change: transform;
+  transition: transform 0.08s linear;
+}
+
 .project-pdf-frame {
   margin-top: 1rem;
   width: 100%;

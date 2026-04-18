@@ -1,5 +1,6 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import Reveal from '../components/Reveal'
+import SlowScroll from '../components/SlowScroll'
 import { projects } from '../data/projects'
 
 export default function ProjectDetail() {
@@ -42,87 +43,229 @@ export default function ProjectDetail() {
         </Reveal>
       </section>
 
-      <section className="section split-section">
-        <div className="split-left">
-          <div className="eyebrow">Overview</div>
-          <h2>What it is</h2>
-        </div>
-        <div>
-          <Reveal>
-            <p className="muted">{project.description}</p>
-          </Reveal>
+      <section className="section process-layout">
+        <aside className="process-nav">
+          <div className="process-nav-title">On this page</div>
+          <a href="#overview">Overview</a>
+          <a href="#what-i-did">What I Did</a>
+          {isVoiceProject && <a href="#roadmap">Project Roadmap</a>}
+          {isVoiceProject && <a href="#research">Research & Data</a>}
+          {isVoiceProject && <a href="#prototypes">Prototypes</a>}
+          {isVoiceProject && <a href="#reflection">Reflection</a>}
+          {isVoiceProject && <a href="#take-a-look">Take a Look</a>}
+        </aside>
 
-          <Reveal delay={100}>
-            <div style={{ marginTop: '2rem' }}>
-              <div className="eyebrow">Stack</div>
-              <h2>Tools & tech</h2>
-              <div className="stack" style={{ marginTop: '1rem' }}>
-                {project.stack.map((s) => (
-                  <span key={s} className="tag">{s}</span>
+        <div className="process-content">
+          <section id="overview" className="process-block">
+            <div className="split-section process-split">
+              <div className="split-left">
+                <div className="eyebrow">Overview</div>
+                <h2>What it is</h2>
+              </div>
+              <div>
+                <Reveal>
+                  <p className="muted">{project.description}</p>
+                </Reveal>
+
+                <Reveal delay={100}>
+                  <div style={{ marginTop: '2rem' }}>
+                    <div className="eyebrow">Stack</div>
+                    <h2>Tools & tech</h2>
+                    <div className="stack" style={{ marginTop: '1rem' }}>
+                      {project.stack.map((s) => (
+                        <span key={s} className="tag">{s}</span>
+                      ))}
+                    </div>
+                  </div>
+                </Reveal>
+
+                {isVoiceProject && (
+                  <Reveal delay={200}>
+                    <div id="take-a-look" style={{ marginTop: '2rem' }}>
+                      <div className="eyebrow">Take a look</div>
+
+                      <SlowScroll speed={0.08}>
+                        <div className="project-pdf-frame project-pdf-frame-small">
+                          <object
+                            data="/clearone-presentation.pdf"
+                            type="application/pdf"
+                            className="project-pdf-viewer"
+                          >
+                            <div className="pdf-fallback">
+                              <p>Your browser doesn't support inline PDF viewing.</p>
+                              <a
+                                href="/clearone-presentation.pdf"
+                                target="_blank"
+                                rel="noreferrer"
+                                className="btn btn-primary"
+                              >
+                                Open presentation
+                              </a>
+                            </div>
+                          </object>
+                        </div>
+                      </SlowScroll>
+                    </div>
+                  </Reveal>
+                )}
+              </div>
+            </div>
+          </section>
+
+          <section id="what-i-did" className="process-block">
+            <div className="split-section process-split">
+              <div className="split-left">
+                <h2>What I did</h2>
+              </div>
+              <div className="highlights-list">
+                {project.highlights.map((h, i) => (
+                  <Reveal key={i} delay={i * 80}>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: '56px 1fr',
+                        gap: '1rem',
+                        padding: '1rem 0',
+                        borderBottom: '1px solid rgba(24, 24, 27, 0.08)',
+                      }}
+                    >
+                      <div
+                        className="card-number"
+                        style={{
+                          color: project.accent,
+                          marginTop: '0.05rem',
+                        }}
+                      >
+                        0{i + 1}
+                      </div>
+                      <p style={{ margin: 0 }}>{h}</p>
+                    </div>
+                  </Reveal>
                 ))}
               </div>
             </div>
-          </Reveal>
+          </section>
 
           {isVoiceProject && (
-            <Reveal delay={200}>
-              <div style={{ marginTop: '2rem' }}>
-                <div className="eyebrow">Take a look</div>
-
-                <div className="project-pdf-frame project-pdf-frame-small">
-                  <object
-                    data="/ai-voice-training-presentation.pdf"
-                    type="application/pdf"
-                    className="project-pdf-viewer"
-                  >
-                    <div className="pdf-fallback">
-                      <p>Your browser doesn't support inline PDF viewing.</p>
-                      <a
-                        href="/ai-voice-training-presentation.pdf"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="btn btn-primary"
-                      >
-                        Open presentation
-                      </a>
+            <>
+              <section id="roadmap" className="process-block">
+                <Reveal>
+                  <div className="eyebrow">Project Roadmap</div>
+                  <h2 className="process-heading">How the project developed</h2>
+                  <div className="roadmap-row">
+                    <div className="roadmap-step">
+                      <div className="roadmap-circle" />
+                      <div className="roadmap-label">Research</div>
                     </div>
-                  </object>
-                </div>
-              </div>
-            </Reveal>
-          )}
-        </div>
-      </section>
+                    <div className="roadmap-arrow">→</div>
+                    <div className="roadmap-step">
+                      <div className="roadmap-circle" />
+                      <div className="roadmap-label">Data Collection</div>
+                    </div>
+                    <div className="roadmap-arrow">→</div>
+                    <div className="roadmap-step">
+                      <div className="roadmap-circle" />
+                      <div className="roadmap-label">Prototypes</div>
+                    </div>
+                    <div className="roadmap-arrow">→</div>
+                    <div className="roadmap-step">
+                      <div className="roadmap-circle" />
+                      <div className="roadmap-label">Reflection</div>
+                    </div>
+                  </div>
+                </Reveal>
+              </section>
 
-      <section className="section split-section">
-        <div className="split-left">
-          <h2>What I did</h2>
-        </div>
-        <div className="highlights-list">
-          {project.highlights.map((h, i) => (
-            <Reveal key={i} delay={i * 80}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '56px 1fr',
-                  gap: '1rem',
-                  padding: '1rem 0',
-                  borderBottom: '1px solid rgba(24, 24, 27, 0.08)',
-                }}
-              >
-                <div
-                  className="card-number"
-                  style={{
-                    color: project.accent,
-                    marginTop: '0.05rem',
-                  }}
-                >
-                  0{i + 1}
-                </div>
-                <p style={{ margin: 0 }}>{h}</p>
-              </div>
-            </Reveal>
-          ))}
+              <section id="research" className="process-block">
+                <Reveal>
+                  <div className="eyebrow">Research & Data</div>
+                  <h2 className="process-heading">Inputs that shaped the work</h2>
+                  <div className="research-grid">
+                    <div className="research-card">
+                      <div className="meta-label">Data</div>
+                      <p className="muted">
+                        We received anonymized call transcripts and project material that helped ground the
+                        interaction design and shape the kinds of conversations the system needed to support.
+                      </p>
+                    </div>
+
+                    <div className="research-card">
+                      <div className="meta-label">Research</div>
+                      <p className="muted">
+                        I looked into speech-to-text, text-to-speech, conversational AI behavior, and the
+                        broader experience of making voice interactions feel clear, responsive, and useful.
+                      </p>
+                    </div>
+                  </div>
+                </Reveal>
+              </section>
+
+              <section id="prototypes" className="process-block">
+                <Reveal>
+                  <div className="eyebrow">Prototypes</div>
+                  <h2 className="process-heading">Design explorations</h2>
+                  <p className="muted">
+                    This section can hold sketches, wireframes, interface iterations, and other visual
+                    checkpoints from the project.
+                  </p>
+                </Reveal>
+
+                <Reveal delay={100}>
+                  <SlowScroll speed={0.14}>
+                    <div className="prototype-strip">
+                      <div className="prototype-box">
+                        <img
+                          src="/clearone-pics/prototype-1.png"
+                          alt="Prototype 1"
+                          className="prototype-image"
+                        />
+                      </div>
+                      <div className="prototype-box">
+                        <img
+                          src="/clearone-pics/prototype-2.png"
+                          alt="Prototype 2"
+                          className="prototype-image"
+                        />
+                      </div>
+                      <div className="prototype-box">
+                        <img
+                          src="/clearone-pics/prototype-3.png"
+                          alt="Prototype 3"
+                          className="prototype-image"
+                        />
+                      </div>
+                      <div className="prototype-box">
+                        <img
+                          src="/clearone-pics/prototype-4.png"
+                          alt="Prototype 4"
+                          className="prototype-image"
+                        />
+                      </div>
+                      <div className="prototype-box">
+                        <img
+                          src="/clearone-pics/prototype-5.png"
+                          alt="Prototype 5"
+                          className="prototype-image"
+                        />
+                      </div>
+                    </div>
+                  </SlowScroll>
+                </Reveal>
+              </section>
+
+              <section id="reflection" className="process-block">
+                <Reveal>
+                  <div className="eyebrow">Reflection</div>
+                  <h2 className="process-heading">What I learned</h2>
+                  <p className="muted">
+                    This project pushed me to think about voice interaction not just as a technical system,
+                    but as an experience. It made me think more deeply about how responsiveness, clarity,
+                    and feedback shape whether an interaction feels helpful in real time.
+                  </p>
+                </Reveal>
+              </section>
+            </>
+          )}
         </div>
       </section>
 
