@@ -5,7 +5,7 @@ const experience = [
   {
     
     company: 'ClearOne Advantage',
-    role: 'AI Intern',
+    role: 'Software Development Intern',
     period: '2026',
   },
   {
@@ -27,7 +27,7 @@ const experience = [
   },
   {
     company: 'University of San Francisco',
-    role: 'Computer Science, B.S.',
+    role: 'Computer Science, B.S.\nMinor in Entrepreneurship & Innovation',
     period: '2021 – 2026',
   },
 ]
