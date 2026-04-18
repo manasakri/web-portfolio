@@ -27,7 +27,7 @@ const experience = [
   },
   {
     company: 'University of San Francisco',
-    role: 'Computer Science, B.S.\nMinor in Entrepreneurship & Innovation',
+    role: 'B.S. in Computer Science, with a Minor in Entrepreneurship & Innovation',
     period: '2021 – 2026',
   },
 ]
