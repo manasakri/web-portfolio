@@ -3,6 +3,14 @@ import Reveal from '../components/Reveal'
 import SlowScroll from '../components/SlowScroll'
 import { projects } from '../data/projects'
 
+const prototypeItems = [
+  { src: '/clearone-pics/prototype-1.png', alt: 'Prototype 1', label: '01', title: 'Research' },
+  { src: '/clearone-pics/prototype-2.png', alt: 'Prototype 2', label: '02', title: 'Flows' },
+  { src: '/clearone-pics/prototype-3.png', alt: 'Prototype 3', label: '03', title: 'Wireframes' },
+  { src: '/clearone-pics/prototype-4.png', alt: 'Prototype 4', label: '04', title: 'UI' },
+  { src: '/clearone-pics/prototype-5.png', alt: 'Prototype 5', label: '05', title: 'Testing' },
+]
+
 export default function ProjectDetail() {
   const { slug } = useParams()
   const project = projects.find((p) => p.slug === slug)
@@ -57,8 +65,8 @@ export default function ProjectDetail() {
           {isVoiceProject && <a href="#roadmap">Project Roadmap</a>}
           {isVoiceProject && <a href="#research">Research & Data</a>}
           {isVoiceProject && <a href="#prototypes">Prototypes</a>}
-          {isVoiceProject && <a href="#reflection">Reflection</a>}
           {isVoiceProject && <a href="#take-a-look">Take a Look</a>}
+          {isVoiceProject && <a href="#reflection">Reflection</a>}
         </aside>
 
         <div className="process-content">
@@ -80,36 +88,6 @@ export default function ProjectDetail() {
                 </div>
               </div>
             </Reveal>
-
-            {isVoiceProject && (
-              <Reveal delay={200}>
-                <div id="take-a-look" className="process-subsection">
-                  <div className="eyebrow">Take a look</div>
-
-                  <SlowScroll speed={0.08}>
-                    <div className="project-pdf-frame project-pdf-frame-small">
-                      <object
-                        data="/clearone-presentation.pdf"
-                        type="application/pdf"
-                        className="project-pdf-viewer"
-                      >
-                        <div className="pdf-fallback">
-                          <p>Your browser doesn't support inline PDF viewing.</p>
-                          <a
-                            href="/clearone-presentation.pdf"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="btn btn-primary"
-                          >
-                            Open presentation
-                          </a>
-                        </div>
-                      </object>
-                    </div>
-                  </SlowScroll>
-                </div>
-              </Reveal>
-            )}
           </section>
 
           <section id="what-i-did" className="process-block">
@@ -144,36 +122,28 @@ export default function ProjectDetail() {
 
                   <div className="roadmap-row">
                     <div className="roadmap-step">
-                      <div className="roadmap-circle">
-                        <span className="roadmap-dot" />
-                      </div>
+                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
                       <div className="roadmap-label">Research</div>
                     </div>
 
                     <div className="roadmap-arrow">→</div>
 
                     <div className="roadmap-step">
-                      <div className="roadmap-circle">
-                        <span className="roadmap-dot" />
-                      </div>
+                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
                       <div className="roadmap-label">Data Collection</div>
                     </div>
 
                     <div className="roadmap-arrow">→</div>
 
                     <div className="roadmap-step">
-                      <div className="roadmap-circle">
-                        <span className="roadmap-dot" />
-                      </div>
+                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
                       <div className="roadmap-label">Prototypes</div>
                     </div>
 
                     <div className="roadmap-arrow">→</div>
 
                     <div className="roadmap-step">
-                      <div className="roadmap-circle">
-                        <span className="roadmap-dot" />
-                      </div>
+                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
                       <div className="roadmap-label">Reflection</div>
                     </div>
                   </div>
@@ -186,7 +156,7 @@ export default function ProjectDetail() {
                   <h2 className="process-heading">Inputs that shaped the work</h2>
 
                   <div className="research-grid">
-                    <div className="research-card">
+                    <div className="research-card research-card-pink">
                       <div className="meta-label">Data</div>
                       <p className="muted">
                         We received anonymized call transcripts and project material that helped ground the
@@ -194,7 +164,7 @@ export default function ProjectDetail() {
                       </p>
                     </div>
 
-                    <div className="research-card">
+                    <div className="research-card research-card-purple">
                       <div className="meta-label">Research</div>
                       <p className="muted">
                         I looked into speech-to-text, text-to-speech, conversational AI behavior, and the
@@ -210,49 +180,69 @@ export default function ProjectDetail() {
                   <div className="eyebrow">Prototypes</div>
                   <h2 className="process-heading">Design explorations</h2>
                   <p className="muted process-copy">
-                    This section can hold sketches, wireframes, interface iterations, and other visual
-                    checkpoints from the project.
+                    This section holds sketches, wireframes, interface iterations, and visual checkpoints
+                    from the project.
+                  </p>
+                  <p className="muted process-copy process-copy-secondary">
+                    From early structure to more polished interface decisions, these helped document how
+                    the experience changed over time.
                   </p>
                 </Reveal>
 
                 <Reveal delay={100}>
                   <SlowScroll speed={0.14}>
                     <div className="prototype-strip">
-                      <div className="prototype-box">
-                        <img
-                          src="/clearone-pics/prototype-1.png"
-                          alt="Prototype 1"
-                          className="prototype-image"
-                        />
-                      </div>
-                      <div className="prototype-box">
-                        <img
-                          src="/clearone-pics/prototype-2.png"
-                          alt="Prototype 2"
-                          className="prototype-image"
-                        />
-                      </div>
-                      <div className="prototype-box">
-                        <img
-                          src="/clearone-pics/prototype-3.png"
-                          alt="Prototype 3"
-                          className="prototype-image"
-                        />
-                      </div>
-                      <div className="prototype-box">
-                        <img
-                          src="/clearone-pics/prototype-4.png"
-                          alt="Prototype 4"
-                          className="prototype-image"
-                        />
-                      </div>
-                      <div className="prototype-box">
-                        <img
-                          src="/clearone-pics/prototype-5.png"
-                          alt="Prototype 5"
-                          className="prototype-image"
-                        />
-                      </div>
+                      {prototypeItems.map((item, i) => (
+                        <div className={`prototype-box prototype-tone-${(i % 4) + 1}`} key={item.src}>
+                          <div className="prototype-box-top">
+                            <span className="prototype-icon" aria-hidden="true">
+                              {i % 4 === 0 ? '◧' : i % 4 === 1 ? '✦' : i % 4 === 2 ? '◎' : '△'}
+                            </span>
+                            <span className="prototype-chip">{item.label}</span>
+                          </div>
+
+                          <img
+                            src={item.src}
+                            alt={item.alt}
+                            className="prototype-image"
+                          />
+
+                          <div className="prototype-caption">
+                            <div className="prototype-caption-title">{item.title}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </SlowScroll>
+                </Reveal>
+              </section>
+
+              <section id="take-a-look" className="process-block">
+                <Reveal>
+                  <div className="eyebrow">Take a look</div>
+                  <h2 className="process-heading">Presentation</h2>
+                </Reveal>
+
+                <Reveal delay={100}>
+                  <SlowScroll speed={0.08}>
+                    <div className="project-pdf-frame project-pdf-frame-small">
+                      <object
+                        data="/clearone-presentation.pdf"
+                        type="application/pdf"
+                        className="project-pdf-viewer"
+                      >
+                        <div className="pdf-fallback">
+                          <p>Your browser doesn't support inline PDF viewing.</p>
+                          <a
+                            href="/clearone-presentation.pdf"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn btn-primary"
+                          >
+                            Open presentation
+                          </a>
+                        </div>
+                      </object>
                     </div>
                   </SlowScroll>
                 </Reveal>
