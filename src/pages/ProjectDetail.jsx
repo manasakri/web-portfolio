@@ -19,6 +19,12 @@ export default function ProjectDetail() {
     <article className="project-page">
       <div className="project-hero" style={{ background: project.gradient }}>
         <div className="project-hero-inner">
+          <div className="project-hero-decor" aria-hidden="true">
+            <span className="hero-decor hero-decor-1" />
+            <span className="hero-decor hero-decor-2" />
+            <span className="hero-decor hero-decor-3" />
+          </div>
+
           <Reveal delay={100}>
             <h1 className="project-hero-title">{project.title}</h1>
           </Reveal>
@@ -57,92 +63,75 @@ export default function ProjectDetail() {
 
         <div className="process-content">
           <section id="overview" className="process-block">
-            <div className="split-section process-split">
-              <div className="split-left">
-                <div className="eyebrow">Overview</div>
-                <h2>What it is</h2>
+            <Reveal>
+              <div className="eyebrow">Overview</div>
+              <h2 className="process-heading">What it is</h2>
+              <p className="muted process-copy">{project.description}</p>
+            </Reveal>
+
+            <Reveal delay={100}>
+              <div className="process-subsection">
+                <div className="eyebrow">Stack</div>
+                <h3 className="process-subheading">Tools & tech</h3>
+                <div className="stack" style={{ marginTop: '1rem' }}>
+                  {project.stack.map((s) => (
+                    <span key={s} className="tag">{s}</span>
+                  ))}
+                </div>
               </div>
-              <div>
-                <Reveal>
-                  <p className="muted">{project.description}</p>
-                </Reveal>
+            </Reveal>
 
-                <Reveal delay={100}>
-                  <div style={{ marginTop: '2rem' }}>
-                    <div className="eyebrow">Stack</div>
-                    <h2>Tools & tech</h2>
-                    <div className="stack" style={{ marginTop: '1rem' }}>
-                      {project.stack.map((s) => (
-                        <span key={s} className="tag">{s}</span>
-                      ))}
-                    </div>
-                  </div>
-                </Reveal>
+            {isVoiceProject && (
+              <Reveal delay={200}>
+                <div id="take-a-look" className="process-subsection">
+                  <div className="eyebrow">Take a look</div>
 
-                {isVoiceProject && (
-                  <Reveal delay={200}>
-                    <div id="take-a-look" style={{ marginTop: '2rem' }}>
-                      <div className="eyebrow">Take a look</div>
-
-                      <SlowScroll speed={0.08}>
-                        <div className="project-pdf-frame project-pdf-frame-small">
-                          <object
-                            data="/clearone-presentation.pdf"
-                            type="application/pdf"
-                            className="project-pdf-viewer"
+                  <SlowScroll speed={0.08}>
+                    <div className="project-pdf-frame project-pdf-frame-small">
+                      <object
+                        data="/clearone-presentation.pdf"
+                        type="application/pdf"
+                        className="project-pdf-viewer"
+                      >
+                        <div className="pdf-fallback">
+                          <p>Your browser doesn't support inline PDF viewing.</p>
+                          <a
+                            href="/clearone-presentation.pdf"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="btn btn-primary"
                           >
-                            <div className="pdf-fallback">
-                              <p>Your browser doesn't support inline PDF viewing.</p>
-                              <a
-                                href="/clearone-presentation.pdf"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="btn btn-primary"
-                              >
-                                Open presentation
-                              </a>
-                            </div>
-                          </object>
+                            Open presentation
+                          </a>
                         </div>
-                      </SlowScroll>
+                      </object>
                     </div>
-                  </Reveal>
-                )}
-              </div>
-            </div>
+                  </SlowScroll>
+                </div>
+              </Reveal>
+            )}
           </section>
 
           <section id="what-i-did" className="process-block">
-            <div className="split-section process-split">
-              <div className="split-left">
-                <h2>What I did</h2>
-              </div>
-              <div className="highlights-list">
-                {project.highlights.map((h, i) => (
-                  <Reveal key={i} delay={i * 80}>
+            <Reveal>
+              <div className="eyebrow">Contributions</div>
+              <h2 className="process-heading">What I did</h2>
+            </Reveal>
+
+            <div className="highlights-list">
+              {project.highlights.map((h, i) => (
+                <Reveal key={i} delay={i * 80}>
+                  <div className="what-i-did-row">
                     <div
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: '56px 1fr',
-                        gap: '1rem',
-                        padding: '1rem 0',
-                        borderBottom: '1px solid rgba(24, 24, 27, 0.08)',
-                      }}
+                      className="card-number what-i-did-number"
+                      style={{ color: project.accent }}
                     >
-                      <div
-                        className="card-number"
-                        style={{
-                          color: project.accent,
-                          marginTop: '0.05rem',
-                        }}
-                      >
-                        0{i + 1}
-                      </div>
-                      <p style={{ margin: 0 }}>{h}</p>
+                      0{i + 1}
                     </div>
-                  </Reveal>
-                ))}
-              </div>
+                    <p className="what-i-did-text">{h}</p>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </section>
 
@@ -152,24 +141,39 @@ export default function ProjectDetail() {
                 <Reveal>
                   <div className="eyebrow">Project Roadmap</div>
                   <h2 className="process-heading">How the project developed</h2>
+
                   <div className="roadmap-row">
                     <div className="roadmap-step">
-                      <div className="roadmap-circle" />
+                      <div className="roadmap-circle">
+                        <span className="roadmap-dot" />
+                      </div>
                       <div className="roadmap-label">Research</div>
                     </div>
+
                     <div className="roadmap-arrow">→</div>
+
                     <div className="roadmap-step">
-                      <div className="roadmap-circle" />
+                      <div className="roadmap-circle">
+                        <span className="roadmap-dot" />
+                      </div>
                       <div className="roadmap-label">Data Collection</div>
                     </div>
+
                     <div className="roadmap-arrow">→</div>
+
                     <div className="roadmap-step">
-                      <div className="roadmap-circle" />
+                      <div className="roadmap-circle">
+                        <span className="roadmap-dot" />
+                      </div>
                       <div className="roadmap-label">Prototypes</div>
                     </div>
+
                     <div className="roadmap-arrow">→</div>
+
                     <div className="roadmap-step">
-                      <div className="roadmap-circle" />
+                      <div className="roadmap-circle">
+                        <span className="roadmap-dot" />
+                      </div>
                       <div className="roadmap-label">Reflection</div>
                     </div>
                   </div>
@@ -180,6 +184,7 @@ export default function ProjectDetail() {
                 <Reveal>
                   <div className="eyebrow">Research & Data</div>
                   <h2 className="process-heading">Inputs that shaped the work</h2>
+
                   <div className="research-grid">
                     <div className="research-card">
                       <div className="meta-label">Data</div>
@@ -204,7 +209,7 @@ export default function ProjectDetail() {
                 <Reveal>
                   <div className="eyebrow">Prototypes</div>
                   <h2 className="process-heading">Design explorations</h2>
-                  <p className="muted">
+                  <p className="muted process-copy">
                     This section can hold sketches, wireframes, interface iterations, and other visual
                     checkpoints from the project.
                   </p>
@@ -257,7 +262,7 @@ export default function ProjectDetail() {
                 <Reveal>
                   <div className="eyebrow">Reflection</div>
                   <h2 className="process-heading">What I learned</h2>
-                  <p className="muted">
+                  <p className="muted process-copy">
                     This project pushed me to think about voice interaction not just as a technical system,
                     but as an experience. It made me think more deeply about how responsiveness, clarity,
                     and feedback shape whether an interaction feels helpful in real time.
