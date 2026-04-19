@@ -4,11 +4,21 @@ import SlowScroll from '../components/SlowScroll'
 import { projects } from '../data/projects'
 
 const prototypeItems = [
-  { src: '/clearone-pics/prototype-1.png', alt: 'Prototype 1', label: '01', title: 'Research' },
-  { src: '/clearone-pics/prototype-2.png', alt: 'Prototype 2', label: '02', title: 'Flows' },
-  { src: '/clearone-pics/prototype-3.png', alt: 'Prototype 3', label: '03', title: 'Wireframes' },
-  { src: '/clearone-pics/prototype-4.png', alt: 'Prototype 4', label: '04', title: 'UI' },
-  { src: '/clearone-pics/prototype-5.png', alt: 'Prototype 5', label: '05', title: 'Testing' },
+  { src: '/clearone-pics/prototype-1.png', alt: 'Prototype 1' },
+  { src: '/clearone-pics/prototype-2.png', alt: 'Prototype 2' },
+  { src: '/clearone-pics/prototype-3.png', alt: 'Prototype 3' },
+  { src: '/clearone-pics/prototype-4.png', alt: 'Prototype 4' },
+  { src: '/clearone-pics/prototype-5.png', alt: 'Prototype 5' },
+  { src: '/clearone-pics/prototype-6.png', alt: 'Prototype 6' },
+  { src: '/clearone-pics/prototype-7.png', alt: 'Prototype 7' },
+  { src: '/clearone-pics/prototype-8.png', alt: 'Prototype 8' },
+]
+
+const roadmapItems = [
+  { icon: '🔎', label: 'Research' },
+  { icon: '📄', label: 'Data Collection' },
+  { icon: '🖼️', label: 'Prototypes' },
+  { icon: '✦', label: 'Reflection' },
 ]
 
 export default function ProjectDetail() {
@@ -121,31 +131,17 @@ export default function ProjectDetail() {
                   <h2 className="process-heading">How the project developed</h2>
 
                   <div className="roadmap-row">
-                    <div className="roadmap-step">
-                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
-                      <div className="roadmap-label">Research</div>
-                    </div>
-
-                    <div className="roadmap-arrow">→</div>
-
-                    <div className="roadmap-step">
-                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
-                      <div className="roadmap-label">Data Collection</div>
-                    </div>
-
-                    <div className="roadmap-arrow">→</div>
-
-                    <div className="roadmap-step">
-                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
-                      <div className="roadmap-label">Prototypes</div>
-                    </div>
-
-                    <div className="roadmap-arrow">→</div>
-
-                    <div className="roadmap-step">
-                      <div className="roadmap-circle"><span className="roadmap-dot" /></div>
-                      <div className="roadmap-label">Reflection</div>
-                    </div>
+                    {roadmapItems.map((item, i) => (
+                      <div key={item.label} className="roadmap-item-wrap">
+                        <div className="roadmap-step">
+                          <div className="roadmap-circle">
+                            <span className="roadmap-icon" aria-hidden="true">{item.icon}</span>
+                          </div>
+                          <div className="roadmap-label">{item.label}</div>
+                        </div>
+                        {i < roadmapItems.length - 1 && <div className="roadmap-arrow">→</div>}
+                      </div>
+                    ))}
                   </div>
                 </Reveal>
               </section>
@@ -191,25 +187,14 @@ export default function ProjectDetail() {
 
                 <Reveal delay={100}>
                   <SlowScroll speed={0.14}>
-                    <div className="prototype-strip">
+                    <div className="prototype-grid">
                       {prototypeItems.map((item, i) => (
                         <div className={`prototype-box prototype-tone-${(i % 4) + 1}`} key={item.src}>
-                          <div className="prototype-box-top">
-                            <span className="prototype-icon" aria-hidden="true">
-                              {i % 4 === 0 ? '◧' : i % 4 === 1 ? '✦' : i % 4 === 2 ? '◎' : '△'}
-                            </span>
-                            <span className="prototype-chip">{item.label}</span>
-                          </div>
-
                           <img
                             src={item.src}
                             alt={item.alt}
                             className="prototype-image"
                           />
-
-                          <div className="prototype-caption">
-                            <div className="prototype-caption-title">{item.title}</div>
-                          </div>
                         </div>
                       ))}
                     </div>
