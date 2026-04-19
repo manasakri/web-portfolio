@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function SlowScroll({
   children,
-  speed = 0.2,
+  speed = 0.12,
   direction = 'up',
   className = '',
 }) {
@@ -21,8 +21,8 @@ export default function SlowScroll({
       const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height)
       const clamped = Math.max(0, Math.min(1, progress))
 
-      const maxShift = 140
-      const base = (clamped - 0.5) * maxShift * speed * 6
+      const maxShift = 60
+      const base = (clamped - 0.5) * maxShift * speed * 3
       const translateY = direction === 'down' ? -base : base
 
       setOffset(translateY)

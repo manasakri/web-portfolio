@@ -1,13 +1,8 @@
 import { useParams, Link, Navigate } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import SlowScroll from '../components/SlowScroll'
+import ProjectTabs from '../components/ProjectTabs'
 import { projects } from '../data/projects'
-import {
-  BsSliders,
-  BsFileEarmarkText,
-  BsGrid,
-  BsStars,
-} from 'react-icons/bs'
 
 const topPrototypeItems = [
   { src: '/clearone-pics/prototype-1.png', alt: 'Prototype 1' },
@@ -24,10 +19,38 @@ const bottomPrototypeItem = {
 }
 
 const roadmapItems = [
-  { icon: BsSliders, label: 'Research' },
-  { icon: BsFileEarmarkText, label: 'Data Collection' },
-  { icon: BsGrid, label: 'Prototypes' },
-  { icon: BsStars, label: 'Refinement' },
+  { number: '01', title: 'Research', subtitle: 'Refinement' },
+  { number: '02', title: 'Data', subtitle: 'Collection' },
+  { number: '03', title: 'Prototype', subtitle: 'Rounds' },
+  { number: '04', title: 'Reflection', subtitle: 'Iteration' },
+]
+
+const researchTabs = [
+  {
+    label: 'Signals',
+    title: 'Project Signals',
+    content:
+      'We reviewed sponsor material, project requirements, and interaction examples to understand what the training flow needed to support and where clarity was missing.',
+  },
+  {
+    label: 'Conversations',
+    title: 'Conversations',
+    content:
+      'Team discussions and sponsor feedback helped define what mattered most in the experience, especially around readability, live guidance, and how feedback should appear during practice.',
+  },
+  {
+    label: 'Patterns',
+    title: 'Patterns',
+    content:
+      'The clearest pattern was that the interface needed to feel immediate, legible, and useful while a conversation was happening, not only after it ended.',
+  },
+  {
+    label: 'Users',
+    title: 'Users',
+    subtabs: [{ label: 'Sales Rep' }, { label: 'Manager' }],
+    content:
+      'The main users were people practicing conversation scenarios and reviewing AI-supported guidance. The interface had to help them move between speaking, reading, and reflecting without losing context.',
+  },
 ]
 
 export default function ProjectDetail() {
@@ -40,7 +63,6 @@ export default function ProjectDetail() {
   const next = projects[(index + 1) % projects.length]
 
   const isVoiceProject = project.slug === 'ai-voice-training'
-  const teamValue = project.team
 
   return (
     <article className="project-page">
@@ -64,13 +86,27 @@ export default function ProjectDetail() {
       <section className="section project-meta">
         <Reveal>
           <div className="meta-grid">
-            <div>
+            <div className="meta-item">
               <div className="meta-label">Role</div>
-              <div className="meta-value">{project.role}</div>
+              <div className="meta-value meta-value-role">
+                <strong>
+                  Frontend Engineer
+                  <br />
+                  Voice Integration
+                </strong>
+              </div>
             </div>
-            <div>
+
+            <div className="meta-item">
               <div className="meta-label">Team</div>
-              <div className="meta-value">{teamValue}</div>
+              <div className="meta-value meta-value-team">
+                <strong>Senior Capstone Team</strong>{' '}
+                <span className="meta-inline-note">
+                  (Divya D&apos;Souza, Natalie Hlusi, Manasa Krishnan, Ankit Mukhopadhyay)
+                </span>
+                <br />
+                <strong>ClearOne Advantage team and sponsors</strong>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -93,7 +129,7 @@ export default function ProjectDetail() {
             <Reveal>
               <div className="eyebrow">Overview</div>
               <h2 className="process-heading">What it is</h2>
-              <p className="muted process-copy">{project.description}</p>
+              <p className="muted process-copy process-copy-tight">{project.description}</p>
             </Reveal>
 
             <Reveal delay={100}>
@@ -134,26 +170,24 @@ export default function ProjectDetail() {
 
           {isVoiceProject && (
             <>
-              <section id="roadmap" className="process-block">
+              <section id="roadmap" className="process-block process-block-roadmap">
                 <Reveal>
                   <div className="eyebrow">Project Roadmap</div>
                   <h2 className="process-heading">How the project developed</h2>
 
                   <div className="roadmap-row">
-                    {roadmapItems.map((item, i) => {
-                      const Icon = item.icon
-                      return (
-                        <div key={item.label} className="roadmap-item-wrap">
-                          <div className="roadmap-step">
-                            <div className="roadmap-circle">
-                              <Icon className="roadmap-icon" aria-hidden="true" />
-                            </div>
-                            <div className="roadmap-label">{item.label}</div>
-                          </div>
-                          {i < roadmapItems.length - 1 && <div className="roadmap-arrow">→</div>}
+                    {roadmapItems.map((item, i) => (
+                      <div key={item.number} className={`roadmap-card roadmap-card-${i + 1}`}>
+                        <div className="roadmap-card-top">
+                          <div className="roadmap-card-number">{item.number}</div>
+                          <div className="roadmap-card-mini-line" />
                         </div>
-                      )
-                    })}
+                        <div className="roadmap-card-text">
+                          <span className="roadmap-card-title">{item.title}</span>
+                          <span className="roadmap-card-subtitle">{item.subtitle}</span>
+                        </div>
+                      </div>
+                    ))}
                   </div>
                 </Reveal>
               </section>
@@ -161,25 +195,14 @@ export default function ProjectDetail() {
               <section id="research" className="process-block">
                 <Reveal>
                   <div className="eyebrow">Research & Data</div>
-                  <h2 className="process-heading">Inputs that shaped the work</h2>
+                  <h2 className="process-heading">Core Insights</h2>
+                  <p className="muted process-copy process-copy-tight">
+                    Research, inputs, and patterns that informed the direction of the project.
+                  </p>
+                </Reveal>
 
-                  <div className="research-grid">
-                    <div className="research-card research-card-pink">
-                      <div className="meta-label">Data</div>
-                      <p className="muted">
-                        We received anonymized call transcripts and project material that helped ground the
-                        interaction design and shape the kinds of conversations the system needed to support.
-                      </p>
-                    </div>
-
-                    <div className="research-card research-card-purple">
-                      <div className="meta-label">Research</div>
-                      <p className="muted">
-                        I looked into speech-to-text, text-to-speech, conversational AI behavior, and the
-                        broader experience of making voice interactions feel clear, responsive, and useful.
-                      </p>
-                    </div>
-                  </div>
+                <Reveal delay={100}>
+                  <ProjectTabs tabs={researchTabs} />
                 </Reveal>
               </section>
 
@@ -187,19 +210,17 @@ export default function ProjectDetail() {
                 <Reveal>
                   <div className="eyebrow">Prototypes</div>
                   <h2 className="process-heading">Design explorations</h2>
-                  <p className="muted process-copy">
-                    This section holds sketches, wireframes, interface iterations, and visual checkpoints
-                    from the project.
+                  <p className="muted process-copy process-copy-tight">
+                    This section holds sketches, wireframes, interface iterations, and visual checkpoints from the project.
                   </p>
                   <p className="muted process-copy process-copy-secondary">
-                    From early structure to more polished interface decisions, these helped document how
-                    the experience changed over time.
+                    From early structure to more polished interface decisions, these helped document how the experience changed over time.
                   </p>
                 </Reveal>
 
                 <Reveal delay={100}>
                   <>
-                    <SlowScroll speed={0.34} direction="up" className="parallax-layer">
+                    <SlowScroll speed={0.1} direction="up" className="parallax-layer">
                       <div className="prototype-strip">
                         {topPrototypeItems.map((item, i) => (
                           <div className={`prototype-box prototype-tone-${(i % 4) + 1}`} key={item.src}>
@@ -213,7 +234,7 @@ export default function ProjectDetail() {
                       </div>
                     </SlowScroll>
 
-                    <SlowScroll speed={0.2} direction="down" className="parallax-layer">
+                    <SlowScroll speed={0.06} direction="down" className="parallax-layer">
                       <div className="prototype-feature">
                         <div className="prototype-feature-box prototype-tone-2">
                           <img
@@ -235,7 +256,7 @@ export default function ProjectDetail() {
                 </Reveal>
 
                 <Reveal delay={100}>
-                  <SlowScroll speed={0.14} direction="up" className="parallax-layer">
+                  <SlowScroll speed={0.05} direction="up" className="parallax-layer">
                     <div className="project-pdf-frame project-pdf-frame-small">
                       <object
                         data="/clearone-presentation.pdf"
@@ -263,10 +284,8 @@ export default function ProjectDetail() {
                 <Reveal>
                   <div className="eyebrow">Reflection</div>
                   <h2 className="process-heading">What I learned</h2>
-                  <p className="muted process-copy">
-                    This project pushed me to think about voice interaction not just as a technical system,
-                    but as an experience. It made me think more deeply about how responsiveness, clarity,
-                    and feedback shape whether an interaction feels helpful in real time.
+                  <p className="muted process-copy process-copy-tight">
+                    This project pushed me to think about voice interaction not just as a technical system, but as an experience. It made me think more deeply about how responsiveness, clarity, and feedback shape whether an interaction feels helpful in real time.
                   </p>
                 </Reveal>
               </section>
