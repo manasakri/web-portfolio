@@ -1,11 +1,18 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function SlowScroll({ children, speed = 0.12, className = '' }) {
+export default function SlowScroll({
+  children,
+  speed = 0.2,
+  direction = 'up',
+  className = '',
+}) {
   const ref = useRef(null)
   const [offset, setOffset] = useState(0)
 
   useEffect(() => {
-    const handleScroll = () => {
+    let ticking = false
+
+    const updatePosition = () => {
       const el = ref.current
       if (!el) return
 
@@ -13,26 +20,37 @@ export default function SlowScroll({ children, speed = 0.12, className = '' }) {
       const viewportHeight = window.innerHeight
       const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height)
       const clamped = Math.max(0, Math.min(1, progress))
-      const translateY = (clamped - 0.5) * 120 * speed * 10
+
+      const maxShift = 140
+      const base = (clamped - 0.5) * maxShift * speed * 6
+      const translateY = direction === 'down' ? -base : base
 
       setOffset(translateY)
+      ticking = false
     }
 
-    handleScroll()
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updatePosition)
+        ticking = true
+      }
+    }
+
+    updatePosition()
     window.addEventListener('scroll', handleScroll, { passive: true })
-    window.addEventListener('resize', handleScroll)
+    window.addEventListener('resize', updatePosition)
 
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      window.removeEventListener('resize', handleScroll)
+      window.removeEventListener('resize', updatePosition)
     }
-  }, [speed])
+  }, [speed, direction])
 
   return (
     <div ref={ref} className={`slow-scroll-wrap ${className}`}>
       <div
         className="slow-scroll-inner"
-        style={{ transform: `translateY(${offset}px)` }}
+        style={{ transform: `translate3d(0, ${offset}px, 0)` }}
       >
         {children}
       </div>

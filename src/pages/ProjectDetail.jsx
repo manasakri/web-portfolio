@@ -3,25 +3,28 @@ import Reveal from '../components/Reveal'
 import SlowScroll from '../components/SlowScroll'
 import { projects } from '../data/projects'
 import {
-  BsSearch,
+  BsSliders,
   BsFileEarmarkText,
   BsGrid,
   BsStars,
 } from 'react-icons/bs'
 
-const prototypeItems = [
+const topPrototypeItems = [
   { src: '/clearone-pics/prototype-1.png', alt: 'Prototype 1' },
   { src: '/clearone-pics/prototype-2.png', alt: 'Prototype 2' },
   { src: '/clearone-pics/prototype-3.png', alt: 'Prototype 3' },
   { src: '/clearone-pics/prototype-4.png', alt: 'Prototype 4' },
   { src: '/clearone-pics/prototype-5.png', alt: 'Prototype 5' },
   { src: '/clearone-pics/prototype-6.png', alt: 'Prototype 6' },
-  { src: '/clearone-pics/prototype-7.png', alt: 'Prototype 7' },
-  { src: '/clearone-pics/prototype-8.png', alt: 'Prototype 8' },
 ]
 
+const bottomPrototypeItem = {
+  src: '/clearone-pics/prototype-7.png',
+  alt: 'Prototype 7',
+}
+
 const roadmapItems = [
-  { icon: BsSearch, label: 'Research' },
+  { icon: BsSliders, label: 'Refinement' },
   { icon: BsFileEarmarkText, label: 'Data Collection' },
   { icon: BsGrid, label: 'Prototypes' },
   { icon: BsStars, label: 'Reflection' },
@@ -195,19 +198,33 @@ export default function ProjectDetail() {
                 </Reveal>
 
                 <Reveal delay={100}>
-                  <SlowScroll speed={0.14}>
-                    <div className="prototype-grid">
-                      {prototypeItems.map((item, i) => (
-                        <div className={`prototype-box prototype-tone-${(i % 4) + 1}`} key={item.src}>
+                  <>
+                    <SlowScroll speed={0.34} direction="up" className="parallax-layer">
+                      <div className="prototype-strip">
+                        {topPrototypeItems.map((item, i) => (
+                          <div className={`prototype-box prototype-tone-${(i % 4) + 1}`} key={item.src}>
+                            <img
+                              src={item.src}
+                              alt={item.alt}
+                              className="prototype-image"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </SlowScroll>
+
+                    <SlowScroll speed={0.2} direction="down" className="parallax-layer">
+                      <div className="prototype-feature">
+                        <div className="prototype-feature-box prototype-tone-2">
                           <img
-                            src={item.src}
-                            alt={item.alt}
+                            src={bottomPrototypeItem.src}
+                            alt={bottomPrototypeItem.alt}
                             className="prototype-image"
                           />
                         </div>
-                      ))}
-                    </div>
-                  </SlowScroll>
+                      </div>
+                    </SlowScroll>
+                  </>
                 </Reveal>
               </section>
 
@@ -218,7 +235,7 @@ export default function ProjectDetail() {
                 </Reveal>
 
                 <Reveal delay={100}>
-                  <SlowScroll speed={0.08}>
+                  <SlowScroll speed={0.14} direction="up" className="parallax-layer">
                     <div className="project-pdf-frame project-pdf-frame-small">
                       <object
                         data="/clearone-presentation.pdf"
