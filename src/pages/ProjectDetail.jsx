@@ -24,10 +24,10 @@ const bottomPrototypeItem = {
 }
 
 const roadmapItems = [
-  { icon: BsSliders, label: 'Refinement' },
+  { icon: BsSliders, label: 'Research' },
   { icon: BsFileEarmarkText, label: 'Data Collection' },
   { icon: BsGrid, label: 'Prototypes' },
-  { icon: BsStars, label: 'Reflection' },
+  { icon: BsStars, label: 'Refinement' },
 ]
 
 export default function ProjectDetail() {
