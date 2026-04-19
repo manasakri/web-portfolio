@@ -51,7 +51,6 @@ export default function App() {
       </main>
 
       <footer className="footer">
-        <div>Manasa Krishnan</div>
       </footer>
     </div>
   )
