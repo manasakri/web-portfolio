@@ -21,7 +21,7 @@ const bottomPrototypeItem = {
 
 const roadmapItems = [
   { number: '01', title: 'Research'},
-  { number: '02', title: 'Data', subtitle: 'Collection' },
+  { number: '02', title: 'Data',},
   { number: '03', title: 'Prototypes', subtitle: '' },
   { number: '04', title: 'Refinement', subtitle: '' },
 ]
