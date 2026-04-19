@@ -684,6 +684,7 @@ main { flex: 1; }
 .roadmap-icon {
   font-size: 1.8rem;
   line-height: 1;
+  color: var(--accent);
 }
 
 .roadmap-label {

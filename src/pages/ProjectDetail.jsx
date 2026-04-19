@@ -2,6 +2,12 @@ import { useParams, Link, Navigate } from 'react-router-dom'
 import Reveal from '../components/Reveal'
 import SlowScroll from '../components/SlowScroll'
 import { projects } from '../data/projects'
+import {
+  BsSearch,
+  BsFileEarmarkText,
+  BsGrid,
+  BsStars,
+} from 'react-icons/bs'
 
 const prototypeItems = [
   { src: '/clearone-pics/prototype-1.png', alt: 'Prototype 1' },
@@ -15,10 +21,10 @@ const prototypeItems = [
 ]
 
 const roadmapItems = [
-  { icon: '🔎', label: 'Research' },
-  { icon: '📄', label: 'Data Collection' },
-  { icon: '🖼️', label: 'Prototypes' },
-  { icon: '✦', label: 'Reflection' },
+  { icon: BsSearch, label: 'Research' },
+  { icon: BsFileEarmarkText, label: 'Data Collection' },
+  { icon: BsGrid, label: 'Prototypes' },
+  { icon: BsStars, label: 'Reflection' },
 ]
 
 export default function ProjectDetail() {
@@ -131,17 +137,20 @@ export default function ProjectDetail() {
                   <h2 className="process-heading">How the project developed</h2>
 
                   <div className="roadmap-row">
-                    {roadmapItems.map((item, i) => (
-                      <div key={item.label} className="roadmap-item-wrap">
-                        <div className="roadmap-step">
-                          <div className="roadmap-circle">
-                            <span className="roadmap-icon" aria-hidden="true">{item.icon}</span>
+                    {roadmapItems.map((item, i) => {
+                      const Icon = item.icon
+                      return (
+                        <div key={item.label} className="roadmap-item-wrap">
+                          <div className="roadmap-step">
+                            <div className="roadmap-circle">
+                              <Icon className="roadmap-icon" aria-hidden="true" />
+                            </div>
+                            <div className="roadmap-label">{item.label}</div>
                           </div>
-                          <div className="roadmap-label">{item.label}</div>
+                          {i < roadmapItems.length - 1 && <div className="roadmap-arrow">→</div>}
                         </div>
-                        {i < roadmapItems.length - 1 && <div className="roadmap-arrow">→</div>}
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                 </Reveal>
               </section>
