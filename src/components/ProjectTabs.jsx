@@ -17,7 +17,6 @@ export default function ProjectTabs({ tabs = [] }) {
             className={`project-tab-trigger ${active === i ? 'is-active' : ''}`}
             onClick={() => setActive(i)}
           >
-            <span className="project-tab-trigger-index">{String(i + 1).padStart(2, '0')}</span>
             <span className="project-tab-trigger-text">{tab.label}</span>
           </button>
         ))}

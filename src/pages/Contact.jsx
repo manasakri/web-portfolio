@@ -20,7 +20,7 @@ export default function Contact() {
       </Reveal>
       <Reveal delay={300}>
         <div className="contact-links">
-          <a href="mailto:mkrishnan3@dons.usfca.edu">mkrishnan3@dons.usfca.edu</a>
+          <a href="mailto:manasak.krishnan@gmail.com">manasak.krishnan@gmail.com</a>
           <a href="https://github.com/manasakri" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
         </div>
